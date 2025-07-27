@@ -1,0 +1,27 @@
+-- إنشاء جدول academic_info يدوياً
+CREATE TABLE IF NOT EXISTS `academic_info` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `student_id` bigint(20) UNSIGNED NOT NULL,
+  `academic_year` varchar(255) NOT NULL,
+  `grade_level` varchar(255) NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `classroom` varchar(255) NOT NULL,
+  `enrollment_type` varchar(255) NOT NULL,
+  `enrollment_date` date NOT NULL,
+  `previous_school` varchar(255) DEFAULT NULL,
+  `transfer_reason` text DEFAULT NULL,
+  `previous_level` varchar(255) NOT NULL,
+  `second_language` varchar(255) NOT NULL,
+  `curriculum_type` varchar(255) NOT NULL,
+  `has_failed` varchar(255) NOT NULL DEFAULT 'no',
+  `sibling_order` varchar(255) NOT NULL,
+  `attendance_type` varchar(255) NOT NULL DEFAULT 'regular',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `academic_info_student_id_index` (`student_id`),
+  KEY `academic_info_academic_year_index` (`academic_year`),
+  KEY `academic_info_grade_level_index` (`grade_level`),
+  KEY `academic_info_grade_index` (`grade`),
+  KEY `academic_info_classroom_index` (`classroom`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

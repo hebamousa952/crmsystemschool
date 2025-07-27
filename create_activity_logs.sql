@@ -1,0 +1,27 @@
+-- إنشاء جدول activity_logs
+CREATE TABLE IF NOT EXISTS `activity_logs` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `event_type` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `subject_type` varchar(255) DEFAULT NULL,
+  `subject_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `causer_type` varchar(255) DEFAULT NULL,
+  `causer_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `category` varchar(255) DEFAULT NULL,
+  `severity` varchar(255) NOT NULL DEFAULT 'medium',
+  `properties` json DEFAULT NULL,
+  `ip_address` varchar(255) DEFAULT NULL,
+  `user_agent` text DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `method` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `activity_logs_event_type_index` (`event_type`),
+  KEY `activity_logs_subject_type_index` (`subject_type`),
+  KEY `activity_logs_subject_id_index` (`subject_id`),
+  KEY `activity_logs_causer_type_index` (`causer_type`),
+  KEY `activity_logs_causer_id_index` (`causer_id`),
+  KEY `activity_logs_category_index` (`category`),
+  KEY `activity_logs_created_at_index` (`created_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

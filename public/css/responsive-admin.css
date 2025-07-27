@@ -1,0 +1,236 @@
+/* 🚀 Perfect Responsive Admin Dashboard */
+
+/* Global Box Sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Prevent Horizontal Scroll */
+body, html {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexbox Layout System */
+#app {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Content Area Base */
+#main-content {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.content-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.5rem;
+}
+
+.content-container > * {
+    max-width: 100%;
+}
+
+/* Transitions */
+.sidebar-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 🖥️ Desktop (1024px+) - Perfect Flexbox Layout */
+@media (min-width: 1024px) {
+    #app {
+        flex-direction: row;
+    }
+    
+    #sidebar {
+        flex-shrink: 0;
+        position: relative;
+        height: 100vh;
+    }
+    
+    .sidebar-expanded { 
+        width: 280px; 
+    }
+    
+    .sidebar-collapsed { 
+        width: 80px; 
+    }
+    
+    #main-content {
+        flex: 1;
+    }
+    
+    .mobile-overlay { 
+        display: none !important; 
+    }
+}
+
+/* 📟 Tablet (768px - 1023px) - Flexible Layout */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #app {
+        flex-direction: row;
+    }
+    
+    #sidebar {
+        flex-shrink: 0;
+        position: relative;
+        height: 100vh;
+    }
+    
+    .sidebar-expanded { 
+        width: 260px; 
+    }
+    
+    .sidebar-collapsed { 
+        width: 70px; 
+    }
+    
+    #main-content {
+        flex: 1;
+    }
+    
+    .mobile-overlay { 
+        display: none !important; 
+    }
+}
+
+/* 📱 Mobile (0 - 767px) - Full Width Content */
+@media (max-width: 767px) {
+    #app {
+        flex-direction: column;
+    }
+    
+    #sidebar {
+        position: fixed !important;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 280px;
+        transform: translateX(100%);
+        z-index: 50;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    #sidebar.mobile-visible {
+        transform: translateX(0);
+    }
+    
+    #main-content {
+        flex: 1;
+        width: 100%;
+    }
+    
+    .content-container {
+        padding: 1rem;
+    }
+    
+    /* Mobile overlay */
+    .mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 45;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Mobile specific adjustments */
+    .px-6 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Hide breadcrumb on mobile */
+    nav[aria-label="Breadcrumb"] {
+        display: none !important;
+    }
+    
+    /* Responsive grid adjustments */
+    .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-4 {
+        grid-template-columns: repeat(1, 1fr) !important;
+        gap: 1rem !important;
+    }
+    
+    .grid.grid-cols-2.md\\:grid-cols-4.lg\\:grid-cols-6 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.75rem !important;
+    }
+}
+
+/* 📱 Extra Small Mobile (0 - 480px) */
+@media (max-width: 480px) {
+    .content-container {
+        padding: 0.75rem;
+    }
+    
+    .grid.grid-cols-2.md\\:grid-cols-4.lg\\:grid-cols-6 {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+    
+    /* Smaller text on very small screens */
+    .text-2xl {
+        font-size: 1.5rem !important;
+    }
+    
+    .text-3xl {
+        font-size: 1.875rem !important;
+    }
+}
+
+/* RTL Support */
+[dir="rtl"] .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+    margin-right: calc(1rem * var(--tw-space-x-reverse));
+    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+/* Ensure no horizontal scroll */
+.overflow-x-hidden {
+    overflow-x: hidden !important;
+}
+
+/* Perfect responsive tables */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive table {
+    min-width: 100%;
+    width: 100%;
+}
+
+/* Responsive cards */
+.card-responsive {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Perfect responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+}
