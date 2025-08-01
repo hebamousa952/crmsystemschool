@@ -71,7 +71,7 @@ class StudentObserver
         $originalData = $student->originalData ?? $student->getOriginal();
 
         // Check if important fields changed
-        $importantFields = ['full_name_ar', 'national_id', 'grade_id', 'classroom_id', 'status'];
+        $importantFields = ['full_name', 'national_id', 'status'];
         $hasImportantChanges = false;
 
         foreach ($importantFields as $field) {
@@ -85,7 +85,7 @@ class StudentObserver
             // Log the activity
             $activityLog = ActivityLog::logActivity([
                 'event_type' => 'student_updated',
-                'description' => "تم تعديل بيانات الطالب: {$student->full_name_ar}",
+                'description' => "تم تعديل بيانات الطالب: {$student->full_name}",
                 'subject_type' => Student::class,
                 'subject_id' => $student->id,
                 'causer_type' => 'App\Models\User',
@@ -112,7 +112,7 @@ class StudentObserver
         // Log the activity
         $activityLog = ActivityLog::logActivity([
             'event_type' => 'student_deleted',
-            'description' => "تم حذف الطالب: {$student->full_name_ar}",
+            'description' => "تم حذف الطالب: {$student->full_name}",
             'subject_type' => Student::class,
             'subject_id' => $student->id,
             'causer_type' => 'App\Models\User',
@@ -138,7 +138,7 @@ class StudentObserver
         // Log the activity
         ActivityLog::logActivity([
             'event_type' => 'student_restored',
-            'description' => "تم استعادة الطالب: {$student->full_name_ar}",
+            'description' => "تم استعادة الطالب: {$student->full_name}",
             'subject_type' => Student::class,
             'subject_id' => $student->id,
             'causer_type' => 'App\Models\User',
@@ -159,7 +159,7 @@ class StudentObserver
         // Log the activity
         ActivityLog::logActivity([
             'event_type' => 'student_force_deleted',
-            'description' => "تم حذف الطالب نهائياً: {$student->full_name_ar}",
+            'description' => "تم حذف الطالب نهائياً: {$student->full_name}",
             'subject_type' => Student::class,
             'subject_id' => $student->id,
             'causer_type' => 'App\Models\User',
@@ -181,14 +181,11 @@ class StudentObserver
     {
         $changes = [];
         $fieldLabels = [
-            'full_name_ar' => 'الاسم الكامل',
+            'full_name' => 'الاسم الكامل',
             'national_id' => 'الرقم القومي',
             'birth_date' => 'تاريخ الميلاد',
             'gender' => 'الجنس',
-            'grade_id' => 'المرحلة',
-            'classroom_id' => 'الفصل',
             'status' => 'الحالة',
-            'phone' => 'رقم الهاتف',
             'address' => 'العنوان'
         ];
 

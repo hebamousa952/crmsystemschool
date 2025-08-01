@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Grade;
 use App\Models\Classroom;
-use App\Models\PaymentTransaction as Payment;
+use App\Models\Payment;
 use App\Models\TuitionFee;
 use App\Helpers\SecurityHelper;
 
@@ -38,10 +38,9 @@ class DynamicTableController extends Controller
         $students = $query->paginate($perPage);
 
         // تنسيق البيانات للجدول
-        $formattedData = $this->safeGetPaginatedData($students)->map(function ($student) {
-            if (!$student) return null;
+        $formattedData = $students->getCollection()->map(function ($student) {
             return $this->formatStudentForTable($student);
-        })->filter();
+        });
 
         return response()->json([
             'data' => $formattedData,
@@ -75,10 +74,9 @@ class DynamicTableController extends Controller
         $perPage = $request->get('per_page', 25);
         $payments = $query->paginate($perPage);
 
-        $formattedData = $this->safeGetPaginatedData($payments)->map(function ($payment) {
-            if (!$payment) return null;
+        $formattedData = $payments->getCollection()->map(function ($payment) {
             return $this->formatPaymentForTable($payment);
-        })->filter();
+        });
 
         return response()->json([
             'data' => $formattedData,
@@ -599,84 +597,6 @@ class DynamicTableController extends Controller
 
             default:
                 return response()->json(['error' => 'إجراء غير مدعوم'], 400);
-        }
-    }
-
-    // ==================== وظائف الحماية والتحقق ====================
-
-    /**
-     * التحقق من وجود نموذج قبل الاستخدام
-     */
-    private function verifyModelExists($modelClass)
-    {
-        try {
-            if (!class_exists($modelClass)) {
-                \Illuminate\Support\Facades\Log::error("Model {$modelClass} does not exist");
-                throw new \Exception("Model {$modelClass} not found");
-            }
-            \Illuminate\Support\Facades\Log::info("Model {$modelClass} verified successfully");
-            return true;
-        } catch (\Exception $e) {
-            \Illuminate\Support\Facades\Log::error("Model verification failed: " . $e->getMessage());
-            throw $e;
-        }
-    }
-
-    /**
-     * التحقق من وجود علاقة في النموذج
-     */
-    private function verifyRelationExists($model, $relationName)
-    {
-        try {
-            if (!method_exists($model, $relationName)) {
-                \Illuminate\Support\Facades\Log::warning("Relationship '{$relationName}' does not exist in " . get_class($model));
-                return false;
-            }
-            \Illuminate\Support\Facades\Log::info("Relationship '{$relationName}' verified successfully in " . get_class($model));
-            return true;
-        } catch (\Exception $e) {
-            \Illuminate\Support\Facades\Log::error("Relationship verification failed: " . $e->getMessage());
-            return false;
-        }
-    }
-
-    /**
-     * معالجة آمنة للبيانات المُصفحة
-     */
-    private function safeGetPaginatedData($paginatedData)
-    {
-        try {
-            \Illuminate\Support\Facades\Log::info("=== [SAFE_GET_PAGINATED_DATA] STARTED ===");
-            
-            if (!$paginatedData) {
-                \Illuminate\Support\Facades\Log::error("Paginated data is null");
-                return collect();
-            }
-
-            // محاولة استخدام items() أولاً (Laravel 8+)
-            if (method_exists($paginatedData, 'items')) {
-                \Illuminate\Support\Facades\Log::info("Using items() method for paginated data");
-                return $paginatedData->items();
-            }
-            
-            // العودة إلى getCollection() إذا كانت متوفرة
-            if (method_exists($paginatedData, 'getCollection')) {
-                \Illuminate\Support\Facades\Log::info("Using getCollection() method for paginated data");
-                return $paginatedData->getCollection();
-            }
-            
-            // كحل أخير، محاولة الوصول المباشر للبيانات
-            if (is_iterable($paginatedData)) {
-                \Illuminate\Support\Facades\Log::info("Using direct iteration for paginated data");
-                return collect($paginatedData);
-            }
-            
-            \Illuminate\Support\Facades\Log::warning("Unable to extract items from paginated data, returning empty collection");
-            return collect();
-            
-        } catch (\Exception $e) {
-            \Illuminate\Support\Facades\Log::error("Error in safeGetPaginatedData: " . $e->getMessage());
-            return collect();
         }
     }
 }

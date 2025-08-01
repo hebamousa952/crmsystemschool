@@ -20,5 +20,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        
+        // Ejecutar seeders para el sistema de tarifas flexibles
+        $this->call([
+            UniformItemsSeeder::class,
+            FeeSettingsSeeder::class,
+        ]);
     }
 }

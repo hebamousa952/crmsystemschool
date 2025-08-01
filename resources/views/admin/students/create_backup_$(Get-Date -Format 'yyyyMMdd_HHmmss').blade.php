@@ -4,8 +4,8 @@
 @section('page-title', 'إضافة طالب جديد')
 
 @section('content')
-<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-2 md:py-4 lg:py-8">
-    <div class="form-container max-w-full mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header Section -->
         <div class="text-center mb-8">
             <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
@@ -55,12 +55,12 @@
             </div>
 
             <!-- Form Body -->
-            <form action="{{ route('admin.students.store') }}" method="POST" class="p-4 md:p-6 lg:p-8" id="studentForm">
+            <form action="{{ route('admin.students.store') }}" method="POST" class="p-8" id="studentForm">
                 @csrf
                 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- الاسم الكامل -->
-                    <div class="lg:col-span-2">
+                    <div class="md:col-span-2">
                         <label for="full_name" class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-user text-blue-600 ml-2"></i>
                             الاسم الكامل بالعربية (رباعي)
@@ -202,7 +202,7 @@
                     </div>
 
                     <!-- العنوان -->
-                    <div class="lg:col-span-2">
+                    <div class="md:col-span-2">
                         <label for="address" class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-home text-blue-600 ml-2"></i>
                             عنوان الطالب
@@ -218,7 +218,7 @@
                     </div>
 
                     <!-- الاحتياجات الخاصة -->
-                    <div class="lg:col-span-2">
+                    <div class="md:col-span-2">
                         <label for="special_needs" class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-wheelchair text-blue-600 ml-2"></i>
                             الاحتياجات الخاصة (اختياري)
@@ -232,7 +232,7 @@
                     </div>
 
                     <!-- ملاحظات -->
-                    <div class="lg:col-span-2">
+                    <div class="md:col-span-2">
                         <label for="notes" class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-sticky-note text-blue-600 ml-2"></i>
                             ملاحظات إضافية (اختياري)
@@ -260,8 +260,8 @@
                 </div>
             </div>
 
-            <div class="p-4 md:p-6 lg:p-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+            <div class="p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                     <!-- العام الدراسي -->
                     <div>
@@ -500,11 +500,11 @@
                 </div>
             </div>
 
-            <div class="p-4 md:p-6 lg:p-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+            <div class="p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                     <!-- اسم ولي الأمر الكامل -->
-                    <div class="lg:col-span-2">
+                    <div class="md:col-span-2">
                         <label for="guardian_full_name" class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-user text-purple-600 ml-2"></i>
                             الاسم الكامل لولي الأمر
@@ -687,7 +687,7 @@
                     </div>
 
                     <!-- عنوان السكن -->
-                    <div class="lg:col-span-2">
+                    <div class="md:col-span-2">
                         <label for="guardian_address" class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-home text-purple-600 ml-2"></i>
                             عنوان السكن
@@ -705,7 +705,7 @@
                     </div>
 
                     <!-- هل يوجد وصي قانوني؟ -->
-                    <div class="lg:col-span-2">
+                    <div class="md:col-span-2">
                         <label class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-gavel text-purple-600 ml-2"></i>
                             هل يوجد وصي قانوني؟
@@ -735,7 +735,7 @@
                     </div>
 
                     <!-- بيانات الوصي القانوني (ديناميكية) -->
-                    <div id="legal_guardian_fields" class="lg:col-span-2 hidden">
+                    <div id="legal_guardian_fields" class="md:col-span-2 hidden">
                         <div class="bg-gray-50 p-6 rounded-lg border-2 border-dashed border-gray-300">
                             <h3 class="text-lg font-semibold text-gray-800 mb-4">
                                 <i class="fas fa-user-tie text-purple-600 ml-2"></i>
@@ -798,7 +798,7 @@
                                 </div>
 
                                 <!-- عنوان الوصي -->
-                                <div class="lg:col-span-2">
+                                <div class="md:col-span-2">
                                     <label for="legal_guardian_address" class="block text-sm font-semibold text-gray-700 mb-2">
                                         العنوان
                                     </label>
@@ -838,7 +838,7 @@
                     </div>
 
                     <!-- حسابات التواصل الاجتماعي (اختياري) -->
-                    <div class="lg:col-span-2">
+                    <div class="md:col-span-2">
                         <label class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-share-alt text-purple-600 ml-2"></i>
                             حسابات التواصل الاجتماعي (اختياري)
@@ -881,7 +881,7 @@
                 </div>
             </div>
 
-            <div id="mother_fields" class="p-4 md:p-6 lg:p-8">
+            <div id="mother_fields" class="p-8">
                 <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
                     <div class="flex">
                         <div class="flex-shrink-0">
@@ -895,9 +895,9 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- الاسم الكامل للأم -->
-                    <div class="lg:col-span-2">
+                    <div class="md:col-span-2">
                         <label for="mother_full_name" class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-user text-pink-600 ml-2"></i>
                             الاسم الكامل للأم
@@ -1016,7 +1016,7 @@
                     </div>
 
                     <!-- العنوان الحالي -->
-                    <div class="lg:col-span-2">
+                    <div class="md:col-span-2">
                         <label for="mother_address" class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-home text-pink-600 ml-2"></i>
                             العنوان الحالي
@@ -1032,7 +1032,7 @@
                     </div>
 
                     <!-- صلة الأم بالطالب -->
-                    <div class="lg:col-span-2">
+                    <div class="md:col-span-2">
                         <label for="mother_relationship" class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-heart text-pink-600 ml-2"></i>
                             صلة الأم بالطالب
@@ -1062,7 +1062,7 @@
                 </div>
             </div>
 
-            <div class="p-4 md:p-6 lg:p-8">
+            <div class="p-8">
                 <div class="bg-red-50 border-l-4 border-red-400 p-4 mb-6">
                     <div class="flex">
                         <div class="flex-shrink-0">
@@ -1076,9 +1076,9 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- اسم جهة الاتصال في حالة الطوارئ -->
-                    <div class="lg:col-span-2">
+                    <div class="md:col-span-2">
                         <label for="emergency_contact_name" class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-user-shield text-red-600 ml-2"></i>
                             اسم جهة الاتصال في حالة الطوارئ
@@ -1143,7 +1143,7 @@
                     </div>
 
                     <!-- العنوان (اختياري) -->
-                    <div class="lg:col-span-2">
+                    <div class="md:col-span-2">
                         <label for="emergency_address" class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-map-marker-alt text-red-600 ml-2"></i>
                             العنوان (اختياري)
@@ -1170,7 +1170,7 @@
                 </div>
             </div>
 
-            <div class="p-4 md:p-6 lg:p-8">
+            <div class="p-8">
                 <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
                     <div class="flex">
                         <div class="flex-shrink-0">
@@ -1184,633 +1184,294 @@
                     </div>
                 </div>
 
-                <div class="w-full">
-                    <!-- إعدادات المصروفات البسيطة -->
-                    <div class="space-y-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- القسم الأيسر: إعدادات المصروفات -->
+                    <div class="lg:col-span-2 space-y-6">
                         
-                        <!-- المصروفات الأساسية -->
-                        <div class="bg-white rounded-lg border border-gray-200 p-8">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
-                                <i class="fas fa-graduation-cap text-green-600 ml-3"></i>
-                                المصروفات الدراسية الأساسية
+                        <!-- خطة المصروفات -->
+                        <div class="bg-white border-2 border-gray-100 rounded-xl p-6 shadow-sm financial-card">
+                            <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-clipboard-list text-green-600 ml-2"></i>
+                                خطة المصروفات
                             </h3>
                             
-                            <div class="space-y-8">
-                                <!-- الرسوم الدراسية -->
-                                <div>
-                                    <label for="basic_tuition_fees" class="block text-lg font-semibold text-gray-700 mb-3">
-                                        الرسوم الدراسية <span class="text-red-500">*</span>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <!-- نوع خطة المصروفات -->
+                                <div class="md:col-span-2">
+                                    <label for="fee_plan_id" class="block text-sm font-semibold text-gray-700 mb-2">
+                                        <i class="fas fa-list-alt text-green-600 ml-2"></i>
+                                        خطة المصروفات
+                                        <span class="text-red-500">*</span>
                                     </label>
-                                    <input type="number" id="basic_tuition_fees" name="basic_tuition_fees" 
-                                        class="w-full px-6 py-5 text-xl border-2 border-gray-300 rounded-lg focus:border-green-500 focus:outline-none transition-all duration-200"
-                                        placeholder="أدخل قيمة الرسوم الدراسية بالجنيه" step="0.01" min="0" onchange="calculateTotalFees()" required>
+                                    <select id="fee_plan_id" 
+                                            name="fee_plan_id" 
+                                            required
+                                            onchange="calculateFees()"
+                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200">
+                                        <option value="">اختر خطة المصروفات</option>
+                                        <option value="standard" data-amount="5000" data-description="الخطة الأساسية">الخطة الأساسية - 5,000 جنيه</option>
+                                        <option value="premium" data-amount="7500" data-description="الخطة المتقدمة">الخطة المتقدمة - 7,500 جنيه</option>
+                                        <option value="vip" data-amount="10000" data-description="الخطة المميزة">الخطة المميزة - 10,000 جنيه</option>
+                                    </select>
+                                    @error('fee_plan_id')
+                                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
-                                
-                                <!-- رسوم التسجيل -->
-                                <div>
-                                    <label for="registration_fees" class="block text-lg font-semibold text-gray-700 mb-3">
-                                        رسوم التسجيل (اختياري)
-                                    </label>
-                                    <input type="number" id="registration_fees" name="registration_fees" 
-                                        class="w-full px-6 py-5 text-xl border-2 border-gray-300 rounded-lg focus:border-green-500 focus:outline-none transition-all duration-200"
-                                        placeholder="أدخل رسوم التسجيل إن وجدت" step="0.01" min="0" onchange="calculateTotalFees()">
-                                </div>
-                                
-                                <!-- رسوم المنصة -->
-                                <div>
-                                    <label for="platform_fees" class="block text-lg font-semibold text-gray-700 mb-3">
-                                        رسوم المنصة التعليمية (اختياري)
-                                    </label>
-                                    <input type="number" id="platform_fees" name="platform_fees" 
-                                        class="w-full px-6 py-5 text-xl border-2 border-gray-300 rounded-lg focus:border-green-500 focus:outline-none transition-all duration-200"
-                                        placeholder="أدخل رسوم المنصة التعليمية إن وجدت" step="0.01" min="0" onchange="calculateTotalFees()">
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- الرسوم الإضافية -->
-                        <div class="bg-white rounded-lg border border-gray-200 p-8">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
-                                <i class="fas fa-plus-circle text-blue-600 ml-3"></i>
-                                الرسوم الإضافية
-                            </h3>
-                            
-                            <div class="space-y-8">
-                                <!-- رسوم النقل -->
+                                <!-- الرسوم الإضافية -->
                                 <div>
-                                    <div class="flex items-center mb-4">
-                                        <input type="checkbox" id="enable_transport_fees" name="enable_transport_fees" 
-                                            class="w-6 h-6 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500" 
-                                            onchange="toggleAdditionalFee('transport_fees', this.checked)">
-                                        <label for="enable_transport_fees" class="mr-4 text-lg font-semibold text-gray-700 cursor-pointer">
-                                            تفعيل رسوم النقل المدرسي
+                                    <label class="block text-sm font-semibold text-gray-700 mb-3">
+                                        <i class="fas fa-plus-circle text-green-600 ml-2"></i>
+                                        الرسوم الإضافية
+                                    </label>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" 
+                                                   name="additional_fees[]" 
+                                                   value="transport" 
+                                                   data-amount="500"
+                                                   onchange="calculateFees()"
+                                                   class="rounded border-gray-300 text-green-600 focus:ring-green-500">
+                                            <span class="mr-2 text-sm">رسوم النقل - 500 جنيه</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" 
+                                                   name="additional_fees[]" 
+                                                   value="meals" 
+                                                   data-amount="300"
+                                                   onchange="calculateFees()"
+                                                   class="rounded border-gray-300 text-green-600 focus:ring-green-500">
+                                            <span class="mr-2 text-sm">رسوم الوجبات - 300 جنيه</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" 
+                                                   name="additional_fees[]" 
+                                                   value="activities" 
+                                                   data-amount="200"
+                                                   onchange="calculateFees()"
+                                                   class="rounded border-gray-300 text-green-600 focus:ring-green-500">
+                                            <span class="mr-2 text-sm">رسوم الأنشطة - 200 جنيه</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" 
+                                                   name="additional_fees[]" 
+                                                   value="books" 
+                                                   data-amount="400"
+                                                   onchange="calculateFees()"
+                                                   class="rounded border-gray-300 text-green-600 focus:ring-green-500">
+                                            <span class="mr-2 text-sm">رسوم الكتب - 400 جنيه</span>
                                         </label>
                                     </div>
-                                    <input type="number" id="transport_fees" name="transport_fees" 
-                                        class="w-full px-6 py-5 text-xl border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-200 disabled:bg-gray-100"
-                                        placeholder="أدخل مبلغ رسوم النقل" step="0.01" min="0" onchange="calculateTotalFees()" disabled>
                                 </div>
-                                
-                                <!-- رسوم الأنشطة -->
-                                <div>
-                                    <div class="flex items-center mb-4">
-                                        <input type="checkbox" id="enable_activities_fees" name="enable_activities_fees" 
-                                            class="w-6 h-6 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500" 
-                                            onchange="toggleAdditionalFee('activities_fees', this.checked)">
-                                        <label for="enable_activities_fees" class="mr-4 text-lg font-semibold text-gray-700 cursor-pointer">
-                                            تفعيل رسوم الأنشطة الطلابية
-                                        </label>
-                                    </div>
-                                    <input type="number" id="activities_fees" name="activities_fees" 
-                                        class="w-full px-6 py-5 text-xl border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-200 disabled:bg-gray-100"
-                                        placeholder="أدخل مبلغ رسوم الأنشطة" step="0.01" min="0" onchange="calculateTotalFees()" disabled>
-                                </div>
-                                
-                                <!-- رسوم الكتب -->
-                                <div>
-                                    <div class="flex items-center mb-4">
-                                        <input type="checkbox" id="enable_books_fees" name="enable_books_fees" 
-                                            class="w-6 h-6 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500" 
-                                            onchange="toggleAdditionalFee('books_fees', this.checked)">
-                                        <label for="enable_books_fees" class="mr-4 text-lg font-semibold text-gray-700 cursor-pointer">
-                                            تفعيل رسوم الكتب والمراجع
-                                        </label>
-                                    </div>
-                                    <input type="number" id="books_fees" name="books_fees" 
-                                        class="w-full px-6 py-5 text-xl border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-200 disabled:bg-gray-100"
-                                        placeholder="أدخل مبلغ رسوم الكتب" step="0.01" min="0" onchange="calculateTotalFees()" disabled>
-                                </div>
-                                
-                                <!-- رسوم الامتحانات -->
-                                <div>
-                                    <div class="flex items-center mb-4">
-                                        <input type="checkbox" id="enable_exam_fees" name="enable_exam_fees" 
-                                            class="w-6 h-6 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500" 
-                                            onchange="toggleAdditionalFee('exam_fees', this.checked)">
-                                        <label for="enable_exam_fees" class="mr-4 text-lg font-semibold text-gray-700 cursor-pointer">
-                                            تفعيل رسوم الامتحانات
-                                        </label>
-                                    </div>
-                                    <input type="number" id="exam_fees" name="exam_fees" 
-                                        class="w-full px-6 py-5 text-xl border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-200 disabled:bg-gray-100"
-                                        placeholder="أدخل مبلغ رسوم الامتحانات" step="0.01" min="0" onchange="calculateTotalFees()" disabled>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- الخصومات والمنح -->
-                        <div class="bg-white rounded-lg border border-gray-200 p-8">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
-                                <i class="fas fa-percentage text-orange-600 ml-3"></i>
-                                الخصومات والمنح (اختياري)
-                            </h3>
-                            
-                            <div class="space-y-8">
-                                <!-- نوع الخصم -->
+                                <!-- الخصومات والمنح -->
                                 <div>
-                                    <label for="discount_type" class="block text-lg font-semibold text-gray-700 mb-3">نوع الخصم</label>
-                                    <select id="discount_type" name="discount_type" onchange="handleDiscountTypeChange()"
-                                        class="w-full px-6 py-5 text-xl border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200">
+                                    <label for="discount_type" class="block text-sm font-semibold text-gray-700 mb-2">
+                                        <i class="fas fa-percentage text-green-600 ml-2"></i>
+                                        الخصومات والمنح
+                                    </label>
+                                    <select id="discount_type" 
+                                            name="discount_type" 
+                                            onchange="calculateFees()"
+                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 mb-3">
                                         <option value="">بدون خصم</option>
-                                        <option value="sibling">خصم الأشقاء</option>
-                                        <option value="excellence">خصم التفوق الأكاديمي</option>
-                                        <option value="financial">منحة مالية للمحتاجين</option>
-                                        <option value="staff">خصم موظفي المدرسة</option>
-                                        <option value="social">خصم اجتماعي</option>
-                                        <option value="custom">خصم مخصص</option>
+                                        <option value="sibling" data-discount="10">خصم الأشقاء - 10%</option>
+                                        <option value="excellence" data-discount="15">خصم التفوق - 15%</option>
+                                        <option value="financial" data-discount="25">منحة مالية - 25%</option>
+                                        <option value="staff" data-discount="50">خصم الموظفين - 50%</option>
+                                        <option value="custom" data-discount="0">خصم مخصص</option>
                                     </select>
-                                </div>
-                                
-                                <!-- طريقة الخصم -->
-                                <div id="discount_method_section" style="display: none;">
-                                    <label for="discount_method" class="block text-lg font-semibold text-gray-700 mb-3">طريقة حساب الخصم</label>
-                                    <select id="discount_method" name="discount_method" onchange="handleDiscountMethodChange()"
-                                        class="w-full px-6 py-5 text-xl border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200">
-                                        <option value="percentage">نسبة مئوية (%)</option>
-                                        <option value="amount">مبلغ ثابت (بالجنيه)</option>
-                                    </select>
-                                </div>
-                                
-                                <!-- قيمة الخصم -->
-                                <div id="discount_value_section" style="display: none;">
-                                    <label for="discount_value" class="block text-lg font-semibold text-gray-700 mb-3">
-                                        <span id="discount_value_label">قيمة الخصم</span>
-                                    </label>
-                                    <input type="number" id="discount_value" name="discount_value" 
-                                        class="w-full px-6 py-5 text-xl border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200"
-                                        placeholder="أدخل قيمة الخصم" step="0.01" min="0" onchange="calculateTotalFees()">
-                                </div>
-                                
-                                <!-- سبب الخصم -->
-                                <div id="discount_reason_section" style="display: none;">
-                                    <label for="discount_reason" class="block text-lg font-semibold text-gray-700 mb-3">سبب تطبيق الخصم</label>
-                                    <input type="text" id="discount_reason" name="discount_reason" 
-                                        class="w-full px-6 py-5 text-xl border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200"
-                                        placeholder="اذكر سبب تطبيق الخصم للمراجعة والموافقة">
+
+                                    <!-- خصم مخصص -->
+                                    <div id="custom_discount_section" style="display: none;">
+                                        <label for="custom_discount" class="block text-xs text-gray-600 mb-1">نسبة الخصم المخصص (%)</label>
+                                        <input type="number" 
+                                               id="custom_discount" 
+                                               name="custom_discount" 
+                                               min="0" 
+                                               max="100" 
+                                               step="0.1"
+                                               onchange="calculateFees()"
+                                               placeholder="0.0"
+                                               class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:border-green-500 focus:ring-1 focus:ring-green-200 transition-all duration-200">
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- الزي المدرسي المحسن -->
-                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg">
-                            <!-- رأس القسم -->
-                            <div class="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-4 rounded-t-xl flex items-center justify-between">
+                        <!-- إعدادات الأقساط -->
+                        <div class="bg-white border-2 border-gray-100 rounded-xl p-6 shadow-sm financial-card">
+                            <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-calendar-alt text-green-600 ml-2"></i>
+                                إعدادات الأقساط
+                            </h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <!-- نظام الدفع -->
                                 <div>
-                                    <h3 class="text-xl font-bold flex items-center">
-                                        <i class="fas fa-tshirt ml-3"></i>
-                                        الزي المدرسي الموسمي
-                                    </h3>
-                                    <p class="text-purple-100 text-sm mt-1">إدارة الزي الصيفي والشتوي بمرونة كاملة</p>
-                                </div>
-                                <label class="flex items-center bg-white bg-opacity-20 rounded-lg px-4 py-2 cursor-pointer">
-                                    <input type="checkbox" name="has_uniform" id="has_uniform" class="w-5 h-5 text-purple-600 border-white rounded focus:ring-purple-500 ml-2">
-                                    <span class="text-white font-medium">تفعيل الزي المدرسي</span>
-                                </label>
-                            </div>
-                            
-                            <div id="uniform_section" style="display: none;" class="p-4 md:p-6 lg:p-8">
-                                <!-- تبويبات الزي الموسمي -->
-                                <div class="flex bg-gray-100 rounded-lg p-1 mb-6">
-                                    <button type="button" 
-                                        class="flex-1 px-6 py-3 rounded-md text-sm font-medium transition-all duration-200 focus:outline-none uniform-tab active"
-                                        data-target="summer-uniform">
-                                        <i class="fas fa-sun text-yellow-500 ml-2"></i>
-                                        الزي الصيفي
-                                    </button>
-                                    <button type="button" 
-                                        class="flex-1 px-6 py-3 rounded-md text-sm font-medium transition-all duration-200 focus:outline-none uniform-tab"
-                                        data-target="winter-uniform">
-                                        <i class="fas fa-snowflake text-blue-500 ml-2"></i>
-                                        الزي الشتوي
-                                    </button>
+                                    <label for="payment_system" class="block text-sm font-semibold text-gray-700 mb-2">
+                                        <i class="fas fa-credit-card text-green-600 ml-2"></i>
+                                        نظام الدفع
+                                        <span class="text-red-500">*</span>
+                                    </label>
+                                    <select id="payment_system" 
+                                            name="payment_system" 
+                                            required
+                                            onchange="updateInstallmentOptions()"
+                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200">
+                                        <option value="">اختر نظام الدفع</option>
+                                        <option value="full_payment">دفع كامل</option>
+                                        <option value="installments">دفع بالأقساط</option>
+                                    </select>
                                 </div>
 
-                                <!-- محتوى الزي الصيفي -->
-                                <div id="summer-uniform" class="uniform-content">
-                                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-6">
-                                        <div class="flex items-center justify-between mb-4">
-                                            <h4 class="text-lg font-semibold text-yellow-800 flex items-center">
-                                                <i class="fas fa-sun text-yellow-600 ml-2"></i>
-                                                قطع الزي الصيفي
-                                            </h4>
-                                            <button type="button" class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg transition-colors duration-200" id="add_summer_uniform_item">
-                                                <i class="fas fa-plus ml-2"></i>
-                                                إضافة قطعة صيفية
-                                            </button>
-                                        </div>
-                                        
-                                        <div id="summer_uniform_container" class="space-y-4">
-                                            <!-- سيتم إضافة قطع الزي الصيفي هنا -->
-                                        </div>
-                                        
-                                        <div class="mt-6 bg-yellow-100 border border-yellow-300 rounded-lg p-4">
-                                            <div class="flex items-center justify-between">
-                                                <span class="text-yellow-800 font-semibold">إجمالي تكلفة الزي الصيفي:</span>
-                                                <span id="summer_uniform_total" class="text-xl font-bold text-yellow-900">0 جنيه</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <!-- عدد الأقساط -->
+                                <div id="installments_section" style="display: none;">
+                                    <label for="installments_count" class="block text-sm font-semibold text-gray-700 mb-2">
+                                        <i class="fas fa-list-ol text-green-600 ml-2"></i>
+                                        عدد الأقساط
+                                    </label>
+                                    <select id="installments_count" 
+                                            name="installments_count" 
+                                            onchange="calculateInstallments()"
+                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200">
+                                        <option value="2">قسطين</option>
+                                        <option value="3">3 أقساط</option>
+                                        <option value="4">4 أقساط</option>
+                                        <option value="6">6 أقساط</option>
+                                        <option value="10">10 أقساط</option>
+                                    </select>
                                 </div>
 
-                                <!-- محتوى الزي الشتوي -->
-                                <div id="winter-uniform" class="uniform-content" style="display: none;">
-                                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
-                                        <div class="flex items-center justify-between mb-4">
-                                            <h4 class="text-lg font-semibold text-blue-800 flex items-center">
-                                                <i class="fas fa-snowflake text-blue-600 ml-2"></i>
-                                                قطع الزي الشتوي
-                                            </h4>
-                                            <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200" id="add_winter_uniform_item">
-                                                <i class="fas fa-plus ml-2"></i>
-                                                إضافة قطعة شتوية
-                                            </button>
-                                        </div>
-                                        
-                                        <div id="winter_uniform_container" class="space-y-4">
-                                            <!-- سيتم إضافة قطع الزي الشتوي هنا -->
-                                        </div>
-                                        
-                                        <div class="mt-6 bg-blue-100 border border-blue-300 rounded-lg p-4">
-                                            <div class="flex items-center justify-between">
-                                                <span class="text-blue-800 font-semibold">إجمالي تكلفة الزي الشتوي:</span>
-                                                <span id="winter_uniform_total" class="text-xl font-bold text-blue-900">0 جنيه</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <!-- تاريخ بداية الأقساط -->
+                                <div id="start_date_section" style="display: none;">
+                                    <label for="installments_start_date" class="block text-sm font-semibold text-gray-700 mb-2">
+                                        <i class="fas fa-calendar-day text-green-600 ml-2"></i>
+                                        تاريخ بداية الأقساط
+                                    </label>
+                                    <input type="date" 
+                                           id="installments_start_date" 
+                                           name="installments_start_date" 
+                                           onchange="calculateInstallments()"
+                                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200">
                                 </div>
 
-                                <!-- الإجمالي العام للزي -->
-                                <div class="bg-green-50 border border-green-200 rounded-lg p-6">
-                                    <div class="flex items-center justify-between">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-calculator text-green-600 text-xl ml-3"></i>
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-green-800">الإجمالي العام للزي المدرسي</h4>
-                                                <p class="text-sm text-green-600">شامل الزي الصيفي والشتوي</p>
-                                            </div>
-                                        </div>
-                                        <span id="total_uniform_cost" class="text-2xl font-bold text-green-900">0 جنيه</span>
-                                    </div>
+                                <!-- طريقة الدفع المفضلة -->
+                                <div>
+                                    <label for="preferred_payment_method" class="block text-sm font-semibold text-gray-700 mb-2">
+                                        <i class="fas fa-wallet text-green-600 ml-2"></i>
+                                        طريقة الدفع المفضلة
+                                    </label>
+                                    <select id="preferred_payment_method" 
+                                            name="preferred_payment_method" 
+                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200">
+                                        <option value="cash">نقدي</option>
+                                        <option value="bank_transfer">تحويل بنكي</option>
+                                        <option value="credit_card">بطاقة ائتمان</option>
+                                        <option value="debit_card">بطاقة خصم</option>
+                                        <option value="mobile_wallet">محفظة إلكترونية</option>
+                                        <option value="fawry">فوري</option>
+                                        <option value="vodafone_cash">فودافون كاش</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- إعدادات الأقساط المحسنة -->
-                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg">
-                            <!-- رأس القسم -->
-                            <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-6 py-4 rounded-t-xl">
-                                <h3 class="text-xl font-bold flex items-center">
-                                    <i class="fas fa-calendar-alt ml-3"></i>
-                                    نظام الدفع والأقساط
-                                </h3>
-                                <p class="text-indigo-100 text-sm mt-1">اختر طريقة الدفع المناسبة مع إمكانية التقسيط المرن</p>
-                            </div>
+                        <!-- ملاحظات مالية -->
+                        <div class="bg-white border-2 border-gray-100 rounded-xl p-6 shadow-sm financial-card">
+                            <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-sticky-note text-green-600 ml-2"></i>
+                                ملاحظات مالية
+                            </h3>
                             
-                            <div class="p-4 md:p-6 lg:p-8">
-                                <!-- خيارات نظام الدفع -->
-                                <div class="mb-8">
-                                    <h4 class="text-lg font-semibold text-gray-800 mb-6 flex items-center">
-                                        <i class="fas fa-credit-card text-indigo-600 ml-2"></i>
-                                        اختر نظام الدفع
-                                        <span class="text-red-500 mr-2">*</span>
-                                    </h4>
-                                    
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <label class="relative cursor-pointer">
-                                            <input type="radio" name="payment_system" value="full_payment" onchange="updateInstallmentOptions()" 
-                                                class="peer sr-only">
-                                            <div class="p-6 border-2 border-gray-200 rounded-xl peer-checked:border-indigo-500 peer-checked:bg-indigo-50 hover:border-indigo-300 transition-all duration-200">
-                                                <div class="flex items-center justify-center mb-3">
-                                                    <i class="fas fa-money-bill-alt text-3xl text-indigo-600"></i>
-                                                </div>
-                                                <h5 class="font-semibold text-center text-gray-800 mb-2">دفع كامل</h5>
-                                                <p class="text-sm text-gray-600 text-center">دفعة واحدة فورية</p>
-                                                <div class="hidden peer-checked:flex items-center justify-center mt-3">
-                                                    <i class="fas fa-check-circle text-indigo-600 text-xl"></i>
-                                                </div>
-                                            </div>
-                                        </label>
-                                        
-                                        <label class="relative cursor-pointer">
-                                            <input type="radio" name="payment_system" value="installments_preset" onchange="updateInstallmentOptions()" 
-                                                class="peer sr-only">
-                                            <div class="p-6 border-2 border-gray-200 rounded-xl peer-checked:border-indigo-500 peer-checked:bg-indigo-50 hover:border-indigo-300 transition-all duration-200">
-                                                <div class="flex items-center justify-center mb-3">
-                                                    <i class="fas fa-calendar-week text-3xl text-indigo-600"></i>
-                                                </div>
-                                                <h5 class="font-semibold text-center text-gray-800 mb-2">أقساط محددة</h5>
-                                                <p class="text-sm text-gray-600 text-center">2، 3، 4، 6، 10، 12 قسط</p>
-                                                <div class="hidden peer-checked:flex items-center justify-center mt-3">
-                                                    <i class="fas fa-check-circle text-indigo-600 text-xl"></i>
-                                                </div>
-                                            </div>
-                                        </label>
-                                        
-                                        <label class="relative cursor-pointer">
-                                            <input type="radio" name="payment_system" value="installments_custom" onchange="updateInstallmentOptions()" 
-                                                class="peer sr-only">
-                                            <div class="p-6 border-2 border-gray-200 rounded-xl peer-checked:border-indigo-500 peer-checked:bg-indigo-50 hover:border-indigo-300 transition-all duration-200">
-                                                <div class="flex items-center justify-center mb-3">
-                                                    <i class="fas fa-cogs text-3xl text-indigo-600"></i>
-                                                </div>
-                                                <h5 class="font-semibold text-center text-gray-800 mb-2">أقساط مخصصة</h5>
-                                                <p class="text-sm text-gray-600 text-center">حدد المبالغ والتواريخ</p>
-                                                <div class="hidden peer-checked:flex items-center justify-center mt-3">
-                                                    <i class="fas fa-check-circle text-indigo-600 text-xl"></i>
-                                                </div>
-                                            </div>
-                                        </label>
-                                    </div>
+                            <div class="space-y-4">
+                                <!-- ملاحظات خاصة -->
+                                <div>
+                                    <label for="financial_notes" class="block text-sm font-semibold text-gray-700 mb-2">
+                                        ملاحظات خاصة بالمصروفات
+                                    </label>
+                                    <textarea id="financial_notes" 
+                                              name="financial_notes" 
+                                              rows="3"
+                                              placeholder="أي ملاحظات خاصة بالوضع المالي للطالب..."
+                                              class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 text-right resize-none">{{ old('financial_notes') }}</textarea>
                                 </div>
 
-                                <!-- إعدادات الأقساط المحددة -->
-                                <div id="preset_installments_section" style="display: none;" class="mb-8">
-                                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                                        <h5 class="text-lg font-semibold text-blue-800 mb-4 flex items-center">
-                                            <i class="fas fa-sliders-h text-blue-600 ml-2"></i>
-                                            إعدادات الأقساط المحددة
-                                        </h5>
-                                        
-                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                            <div class="space-y-2">
-                                                <label for="installments_count" class="block text-sm font-semibold text-blue-800">عدد الأقساط</label>
-                                                <select id="installments_count" name="installments_count" onchange="calculateInstallments()"
-                                                    class="w-full px-4 py-4 text-lg border border-blue-300 rounded-lg focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200">
-                                                    <option value="">اختر عدد الأقساط</option>
-                                                    <option value="2">قسطين</option>
-                                                    <option value="3">3 أقساط</option>
-                                                    <option value="4">4 أقساط</option>
-                                                    <option value="6">6 أقساط</option>
-                                                    <option value="10">10 أقساط</option>
-                                                    <option value="12">12 قسط</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="space-y-2">
-                                                <label for="installments_start_date" class="block text-sm font-semibold text-blue-800">تاريخ بداية الأقساط</label>
-                                                <input type="date" id="installments_start_date" name="installments_start_date" 
-                                                    onchange="calculateInstallments()"
-                                                    class="w-full px-4 py-4 text-lg border border-blue-300 rounded-lg focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200">
-                                            </div>
-                                            
-                                            <div class="space-y-2">
-                                                <label for="installment_frequency" class="block text-sm font-semibold text-blue-800">تكرار الأقساط</label>
-                                                <select id="installment_frequency" name="installment_frequency" onchange="calculateInstallments()"
-                                                    class="w-full px-4 py-4 text-lg border border-blue-300 rounded-lg focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200">
-                                                    <option value="monthly">شهرياً</option>
-                                                    <option value="bimonthly">كل شهرين</option>
-                                                    <option value="quarterly">كل 3 أشهر</option>
-                                                    <option value="term">كل فصل دراسي</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- إعدادات الأقساط المخصصة -->
-                                <div id="custom_installments_section" style="display: none;" class="mb-8">
-                                    <div class="bg-purple-50 border border-purple-200 rounded-lg p-6">
-                                        <div class="flex items-center justify-between mb-4">
-                                            <h5 class="text-lg font-semibold text-purple-800 flex items-center">
-                                                <i class="fas fa-tools text-purple-600 ml-2"></i>
-                                                الأقساط المخصصة
-                                            </h5>
-                                            <button type="button" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200" id="add_custom_installment">
-                                                <i class="fas fa-plus ml-2"></i>
-                                                إضافة قسط جديد
-                                            </button>
-                                        </div>
-                                        
-                                        <div id="custom_installments_container" class="space-y-4 mb-6">
-                                            <!-- سيتم إضافة الأقساط المخصصة هنا -->
-                                        </div>
-                                        
-                                        <!-- ملخص الأقساط المخصصة -->
-                                        <div class="bg-purple-100 border border-purple-300 rounded-lg p-4">
-                                            <div class="grid grid-cols-2 gap-4 text-center">
-                                                <div>
-                                                    <p class="text-sm text-purple-700">مجموع الأقساط المخصصة</p>
-                                                    <span id="custom_installments_total" class="text-xl font-bold text-purple-900">0 جنيه</span>
-                                                </div>
-                                                <div>
-                                                    <p class="text-sm text-purple-700">المتبقي من الإجمالي</p>
-                                                    <span id="custom_installments_remaining" class="text-xl font-bold text-purple-900">0 جنيه</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- طريقة الدفع وملاحظات -->
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-                                    <div class="space-y-2">
-                                        <label for="preferred_payment_method" class="block text-sm font-semibold text-gray-700">
-                                            <i class="fas fa-wallet text-green-600 ml-2"></i>
-                                            طريقة الدفع المفضلة
-                                        </label>
-                                        <select id="preferred_payment_method" name="preferred_payment_method" 
-                                            class="w-full px-4 py-4 text-lg border border-gray-300 rounded-lg focus:border-green-500 focus:ring-4 focus:ring-green-100 transition-all duration-200">
-                                            <option value="cash">💵 نقدي</option>
-                                            <option value="bank_transfer">🏦 تحويل بنكي</option>
-                                            <option value="credit_card">💳 بطاقة ائتمان</option>
-                                            <option value="debit_card">💳 بطاقة خصم</option>
-                                            <option value="mobile_wallet">📱 محفظة إلكترونية</option>
-                                            <option value="fawry">🔄 فوري</option>
-                                            <option value="vodafone_cash">📞 فودافون كاش</option>
-                                            <option value="orange_money">🍊 أورانج موني</option>
-                                            <option value="etisalat_cash">📶 اتصالات كاش</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="space-y-2">
-                                        <label for="installments_notes" class="block text-sm font-semibold text-gray-700">
-                                            <i class="fas fa-comment-alt text-green-600 ml-2"></i>
-                                            ملاحظات خاصة بالدفع
-                                        </label>
-                                        <textarea id="installments_notes" name="installments_notes" rows="4"
-                                            placeholder="أي ملاحظات خاصة بطريقة الدفع أو الأقساط..."
-                                            class="w-full px-4 py-4 text-lg border border-gray-300 rounded-lg focus:border-green-500 focus:ring-4 focus:ring-green-100 transition-all duration-200 text-right resize-none">{{ old('installments_notes') }}</textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- الملاحظات المالية المحسنة -->
-                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg">
-                            <!-- رأس القسم -->
-                            <div class="bg-gradient-to-r from-teal-600 to-teal-700 text-white px-6 py-4 rounded-t-xl">
-                                <h3 class="text-xl font-bold flex items-center">
-                                    <i class="fas fa-sticky-note ml-3"></i>
-                                    الملاحظات والتعليقات المالية
-                                </h3>
-                                <p class="text-teal-100 text-sm mt-1">إضافة ملاحظات وتعليقات خاصة بالوضع المالي للطالب</p>
-                            </div>
-                            
-                            <div class="p-4 md:p-6 lg:p-8">
-                                <!-- ملاحظات مفصلة -->
-                                <div class="space-y-6">
-                                    <div class="space-y-2">
-                                        <label for="financial_notes" class="block text-sm font-semibold text-gray-700">
-                                            <i class="fas fa-comment-dots text-teal-600 ml-2"></i>
-                                            ملاحظات تفصيلية حول الوضع المالي
-                                        </label>
-                                        <textarea id="financial_notes" name="financial_notes" rows="4"
-                                            placeholder="اكتب أي ملاحظات مهمة حول الوضع المالي للطالب، ظروف خاصة، أو متطلبات إضافية..."
-                                            class="w-full px-4 py-4 text-lg border border-gray-300 rounded-lg focus:border-teal-500 focus:ring-4 focus:ring-teal-100 transition-all duration-200 text-right resize-none">{{ old('financial_notes') }}</textarea>
-                                    </div>
-
-                                    <!-- خيارات الحالات الخاصة -->
-                                    <div class="bg-amber-50 border border-amber-200 rounded-lg p-6">
-                                        <h4 class="font-semibold text-amber-800 mb-4 flex items-center">
-                                            <i class="fas fa-exclamation-triangle text-amber-600 ml-2"></i>
-                                            الحالات الخاصة والاستثناءات
-                                        </h4>
-                                        
-                                        <div class="space-y-4">
-                                            <label class="flex items-start cursor-pointer p-3 border border-amber-300 rounded-lg hover:bg-amber-100 transition-colors duration-200">
-                                                <input type="checkbox" name="special_financial_case" value="1" 
-                                                    class="w-5 h-5 text-amber-600 border-amber-300 rounded focus:ring-amber-500 mt-1">
-                                                <div class="mr-3">
-                                                    <span class="font-medium text-amber-800">حالة مالية خاصة</span>
-                                                    <p class="text-sm text-amber-700 mt-1">تتطلب مراجعة ومتابعة خاصة من الإدارة المالية</p>
-                                                </div>
-                                            </label>
-
-                                            <label class="flex items-start cursor-pointer p-3 border border-blue-300 rounded-lg hover:bg-blue-50 transition-colors duration-200">
-                                                <input type="checkbox" name="installment_flexibility" value="1" 
-                                                    class="w-5 h-5 text-blue-600 border-blue-300 rounded focus:ring-blue-500 mt-1">
-                                                <div class="mr-3">
-                                                    <span class="font-medium text-blue-800">مرونة في الأقساط</span>
-                                                    <p class="text-sm text-blue-700 mt-1">يحتاج مرونة إضافية في تواريخ ومبالغ الأقساط</p>
-                                                </div>
-                                            </label>
-
-                                            <label class="flex items-start cursor-pointer p-3 border border-green-300 rounded-lg hover:bg-green-50 transition-colors duration-200">
-                                                <input type="checkbox" name="priority_case" value="1" 
-                                                    class="w-5 h-5 text-green-600 border-green-300 rounded focus:ring-green-500 mt-1">
-                                                <div class="mr-3">
-                                                    <span class="font-medium text-green-800">حالة أولوية</span>
-                                                    <p class="text-sm text-green-700 mt-1">يحتاج معاملة خاصة أو أولوية في المتابعة</p>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
+                                <!-- حالة خاصة -->
+                                <div>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" 
+                                               name="special_financial_case" 
+                                               value="1"
+                                               class="rounded border-gray-300 text-green-600 focus:ring-green-500">
+                                        <span class="mr-2 text-sm font-medium text-gray-700">حالة مالية خاصة تتطلب مراجعة الإدارة</span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- الملخص المالي المحسن -->
-                    <div class="space-y-6">
-                        <!-- ملخص المصروفات الرئيسي -->
-                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg sticky top-4">
-                            <!-- رأس الملخص -->
-                            <div class="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-6 py-4 rounded-t-xl">
-                                <h3 class="text-xl font-bold flex items-center">
-                                    <i class="fas fa-receipt ml-3"></i>
-                                    ملخص المصروفات
-                                </h3>
-                                <p class="text-emerald-100 text-sm mt-1">عرض تفصيلي لجميع المصروفات والرسوم</p>
-                            </div>
+                    <!-- القسم الأيمن: ملخص المصروفات -->
+                    <div class="lg:col-span-1">
+                        <div class="financial-summary rounded-xl p-6 sticky top-4">
+                            <h3 class="text-lg font-bold text-green-800 mb-4 flex items-center">
+                                <i class="fas fa-receipt text-green-600 ml-2"></i>
+                                ملخص المصروفات
+                            </h3>
+                            
+                            <div class="space-y-4">
+                                <!-- المصروفات الأساسية -->
+                                <div class="flex justify-between items-center py-2 border-b border-green-200">
+                                    <span class="text-sm text-gray-600">المصروفات الأساسية:</span>
+                                    <span id="basic_fees" class="font-semibold text-green-800">0 جنيه</span>
+                                </div>
 
-                            <div class="p-6">
-                                <!-- المصروفات التفصيلية -->
-                                <div class="space-y-4 mb-6">
-                                    <!-- المصروفات الأساسية -->
-                                    <div class="flex justify-between items-center py-4 bg-green-50 rounded-lg px-4 border border-green-200">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-graduation-cap text-green-600 ml-3"></i>
-                                            <span class="font-medium text-green-800">المصروفات الأساسية</span>
-                                        </div>
-                                        <span id="basic_fees_summary" class="font-bold text-lg text-green-900">0 جنيه</span>
-                                    </div>
+                                <!-- الرسوم الإضافية -->
+                                <div class="flex justify-between items-center py-2 border-b border-green-200">
+                                    <span class="text-sm text-gray-600">الرسوم الإضافية:</span>
+                                    <span id="additional_fees_total" class="font-semibold text-green-800">0 جنيه</span>
+                                </div>
 
-                                    <!-- الرسوم الإضافية -->
-                                    <div class="flex justify-between items-center py-4 bg-blue-50 rounded-lg px-4 border border-blue-200">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-plus-circle text-blue-600 ml-3"></i>
-                                            <span class="font-medium text-blue-800">الرسوم الإضافية</span>
-                                        </div>
-                                        <span id="additional_fees_summary" class="font-bold text-lg text-blue-900">0 جنيه</span>
-                                    </div>
+                                <!-- المجموع الفرعي -->
+                                <div class="flex justify-between items-center py-2 border-b border-green-200">
+                                    <span class="text-sm text-gray-600">المجموع الفرعي:</span>
+                                    <span id="subtotal" class="font-semibold text-green-800">0 جنيه</span>
+                                </div>
 
-                                    <!-- الزي المدرسي -->
-                                    <div class="flex justify-between items-center py-4 bg-purple-50 rounded-lg px-4 border border-purple-200">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-tshirt text-purple-600 ml-3"></i>
-                                            <span class="font-medium text-purple-800">الزي المدرسي</span>
-                                        </div>
-                                        <span id="uniform_fees_summary" class="font-bold text-lg text-purple-900">0 جنيه</span>
-                                    </div>
-
-                                    <!-- المجموع الفرعي -->
-                                    <div class="flex justify-between items-center py-4 bg-gray-50 rounded-lg px-4 border border-gray-300">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-calculator text-gray-600 ml-3"></i>
-                                            <span class="font-semibold text-gray-800">المجموع الفرعي</span>
-                                        </div>
-                                        <span id="subtotal_summary" class="font-bold text-xl text-gray-900">0 جنيه</span>
-                                    </div>
-
-                                    <!-- الخصم -->
-                                    <div class="flex justify-between items-center py-4 bg-red-50 rounded-lg px-4 border border-red-200">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-tags text-red-600 ml-3"></i>
-                                            <span class="font-medium text-red-800">الخصم المطبق</span>
-                                        </div>
-                                        <span id="discount_amount_summary" class="font-bold text-lg text-red-900">- 0 جنيه</span>
-                                    </div>
+                                <!-- الخصم -->
+                                <div class="flex justify-between items-center py-2 border-b border-green-200">
+                                    <span class="text-sm text-gray-600">الخصم:</span>
+                                    <span id="discount_amount" class="font-semibold text-red-600">- 0 جنيه</span>
                                 </div>
 
                                 <!-- الإجمالي النهائي -->
-                                <div class="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl p-6 mb-6">
-                                    <div class="flex justify-between items-center">
-                                        <div>
-                                            <h4 class="text-lg font-semibold">الإجمالي النهائي</h4>
-                                            <p class="text-emerald-100 text-sm">المبلغ الإجمالي المطلوب</p>
-                                        </div>
-                                        <div class="text-left">
-                                            <span id="final_total_summary" class="text-3xl font-bold">0 جنيه</span>
-                                        </div>
-                                    </div>
+                                <div class="flex justify-between items-center py-3 bg-green-100 rounded-lg px-3 border-2 border-green-300">
+                                    <span class="font-bold text-green-800">الإجمالي النهائي:</span>
+                                    <span id="final_total" class="font-bold text-xl text-green-800">0 جنيه</span>
                                 </div>
 
                                 <!-- تفاصيل الأقساط -->
-                                <div id="installments_details" style="display: none;" class="mb-6">
-                                    <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4">
-                                        <h4 class="font-semibold text-indigo-800 mb-3 flex items-center">
-                                            <i class="fas fa-calendar-check text-indigo-600 ml-2"></i>
-                                            جدول الأقساط
-                                        </h4>
-                                        <div id="installments_breakdown" class="space-y-3">
-                                            <!-- سيتم ملؤها بـ JavaScript -->
-                                        </div>
+                                <div id="installments_details" style="display: none;" class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                                    <h4 class="font-semibold text-blue-800 mb-3 flex items-center">
+                                        <i class="fas fa-calendar-check text-blue-600 ml-2"></i>
+                                        تفاصيل الأقساط
+                                    </h4>
+                                    <div id="installments_breakdown" class="space-y-2 text-sm">
+                                        <!-- سيتم ملؤها بـ JavaScript -->
                                     </div>
                                 </div>
 
-                                <!-- إرشادات مهمة -->
-                                <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
-                                    <h5 class="font-semibold text-amber-800 mb-3 flex items-center">
-                                        <i class="fas fa-info-circle text-amber-600 ml-2"></i>
+                                <!-- معلومات إضافية -->
+                                <div class="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                                    <h4 class="font-semibold text-yellow-800 mb-2 flex items-center">
+                                        <i class="fas fa-info-circle text-yellow-600 ml-2"></i>
                                         معلومات مهمة
-                                    </h5>
-                                    <ul class="text-sm text-amber-700 space-y-2">
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check text-amber-600 ml-2 mt-1 text-xs"></i>
-                                            يمكن تعديل المصروفات لاحقاً من خلال الإدارة المالية
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check text-amber-600 ml-2 mt-1 text-xs"></i>
-                                            الخصومات تحتاج موافقة الإدارة العليا
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check text-amber-600 ml-2 mt-1 text-xs"></i>
-                                            تواريخ الأقساط قابلة للتعديل حسب الظروف
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-exclamation-triangle text-amber-600 ml-2 mt-1 text-xs"></i>
-                                            رسوم التأخير 2% شهرياً على المبالغ المتأخرة
-                                        </li>
+                                    </h4>
+                                    <ul class="text-xs text-yellow-700 space-y-1">
+                                        <li>• يمكن تعديل المصروفات لاحقاً من خلال الإدارة المالية</li>
+                                        <li>• الخصومات تحتاج موافقة الإدارة</li>
+                                        <li>• تواريخ الأقساط قابلة للتعديل</li>
+                                        <li>• رسوم التأخير 2% شهرياً</li>
                                     </ul>
                                 </div>
                             </div>
@@ -2750,519 +2411,6 @@ function updateFinancialSummaryAnimated() {
 // استبدال updateFinancialSummary بالنسخة المتحركة
 // (يمكن تفعيلها أو إلغاؤها حسب الحاجة)
 // updateFinancialSummary = updateFinancialSummaryAnimated;
-
-// ==================== النظام المالي المرن الجديد ====================
-
-// متغيرات عامة للنظام المرن
-let flexibleBasicFees = 0;
-let flexibleAdditionalFees = 0;
-let flexibleUniformFees = 0;
-let flexibleDiscount = 0;
-let flexibleDiscountAmount = 0;
-let flexibleFinalTotal = 0;
-
-// حساب المصروفات الأساسية المرنة
-function calculateBasicFees() {
-    const basicTuition = parseFloat(document.getElementById('basic_tuition_fees')?.value || 0);
-    const registrationFees = parseFloat(document.getElementById('registration_fees')?.value || 0);
-    const platformFees = parseFloat(document.getElementById('platform_fees')?.value || 0);
-    
-    flexibleBasicFees = basicTuition + registrationFees + platformFees;
-    return flexibleBasicFees;
-}
-
-// حساب الرسوم الإضافية المرنة
-function calculateAdditionalFees() {
-    flexibleAdditionalFees = 0;
-    
-    // فحص كل رسم إضافي
-    const additionalFeesInputs = [
-        'transport_fees',
-        'activities_fees', 
-        'books_fees',
-        'exam_fees'
-    ];
-    
-    additionalFeesInputs.forEach(inputId => {
-        const checkbox = document.getElementById(`enable_${inputId}`);
-        const input = document.getElementById(inputId);
-        
-        if (checkbox?.checked && input?.value) {
-            flexibleAdditionalFees += parseFloat(input.value);
-        }
-    });
-    
-    return flexibleAdditionalFees;
-}
-
-// حساب رسوم الزي المدرسي
-function calculateUniformFees() {
-    flexibleUniformFees = 0;
-    
-    if (document.getElementById('has_uniform')?.checked) {
-        // حساب الزي الصيفي
-        const summerInputs = document.querySelectorAll('#summer_uniform_container input[type="number"]');
-        let summerTotal = 0;
-        summerInputs.forEach(input => {
-            summerTotal += parseFloat(input.value || 0);
-        });
-        
-        // حساب الزي الشتوي
-        const winterInputs = document.querySelectorAll('#winter_uniform_container input[type="number"]');
-        let winterTotal = 0;
-        winterInputs.forEach(input => {
-            winterTotal += parseFloat(input.value || 0);
-        });
-        
-        flexibleUniformFees = summerTotal + winterTotal;
-        
-        // تحديث العرض
-        document.getElementById('summer_uniform_total').textContent = formatCurrency(summerTotal);
-        document.getElementById('winter_uniform_total').textContent = formatCurrency(winterTotal);
-        document.getElementById('total_uniform_cost').textContent = formatCurrency(flexibleUniformFees);
-    }
-    
-    return flexibleUniformFees;
-}
-
-// حساب الخصم المرن
-function calculateFlexibleDiscount(subtotal) {
-    const discountType = document.getElementById('discount_type')?.value;
-    const discountMethod = document.getElementById('discount_method')?.value;
-    const discountValue = parseFloat(document.getElementById('discount_value')?.value || 0);
-    
-    flexibleDiscountAmount = 0;
-    
-    if (discountType && discountValue > 0) {
-        if (discountMethod === 'percentage') {
-            flexibleDiscountAmount = (subtotal * discountValue) / 100;
-        } else if (discountMethod === 'amount') {
-            flexibleDiscountAmount = discountValue;
-        }
-    }
-    
-    return flexibleDiscountAmount;
-}
-
-// الحساب الشامل للمصروفات المرنة
-function calculateTotalFees() {
-    // حساب المصروفات
-    const basicFees = calculateBasicFees();
-    const additionalFees = calculateAdditionalFees();
-    const uniformFees = calculateUniformFees();
-    
-    // حساب المجموع الفرعي
-    const subtotal = basicFees + additionalFees + uniformFees;
-    
-    // حساب الخصم
-    const discountAmount = calculateFlexibleDiscount(subtotal);
-    
-    // حساب الإجمالي النهائي
-    flexibleFinalTotal = subtotal - discountAmount;
-    
-    // تحديث الملخص
-    updateFlexibleSummary(basicFees, additionalFees, uniformFees, subtotal, discountAmount, flexibleFinalTotal);
-    
-    // إعادة حساب الأقساط إذا لزم الأمر
-    updateFlexibleInstallments();
-    
-    return flexibleFinalTotal;
-}
-
-// تحديث ملخص المصروفات المرن
-function updateFlexibleSummary(basicFees, additionalFees, uniformFees, subtotal, discountAmount, finalTotal) {
-    document.getElementById('basic_fees_summary').textContent = formatCurrency(basicFees);
-    document.getElementById('additional_fees_summary').textContent = formatCurrency(additionalFees);
-    document.getElementById('uniform_fees_summary').textContent = formatCurrency(uniformFees);
-    document.getElementById('subtotal_summary').textContent = formatCurrency(subtotal);
-    document.getElementById('discount_amount_summary').textContent = '- ' + formatCurrency(discountAmount);
-    document.getElementById('final_total_summary').textContent = formatCurrency(finalTotal);
-}
-
-// تفعيل/إلغاء الرسوم الإضافية
-function toggleAdditionalFee(inputId, enabled) {
-    const input = document.getElementById(inputId);
-    if (input) {
-        input.disabled = !enabled;
-        if (!enabled) {
-            input.value = '';
-        }
-        calculateTotalFees();
-    }
-}
-
-// التعامل مع تغيير نوع الخصم
-function handleDiscountTypeChange() {
-    const discountType = document.getElementById('discount_type')?.value;
-    const discountMethodSection = document.getElementById('discount_method_section');
-    const discountValueSection = document.getElementById('discount_value_section');
-    const discountReasonSection = document.getElementById('discount_reason_section');
-    
-    if (discountType && discountType !== '') {
-        discountMethodSection.style.display = 'block';
-        discountValueSection.style.display = 'block';
-        discountReasonSection.style.display = 'block';
-    } else {
-        discountMethodSection.style.display = 'none';
-        discountValueSection.style.display = 'none';
-        discountReasonSection.style.display = 'none';
-    }
-    
-    calculateTotalFees();
-}
-
-// التعامل مع تغيير طريقة الخصم
-function handleDiscountMethodChange() {
-    const discountMethod = document.getElementById('discount_method')?.value;
-    const discountValueLabel = document.getElementById('discount_value_label');
-    const discountValueInput = document.getElementById('discount_value');
-    
-    if (discountMethod === 'percentage') {
-        discountValueLabel.textContent = 'نسبة الخصم (%)';
-        discountValueInput.placeholder = '0.0';
-        discountValueInput.max = '100';
-    } else if (discountMethod === 'amount') {
-        discountValueLabel.textContent = 'مبلغ الخصم (جنيه)';
-        discountValueInput.placeholder = '0.00';
-        discountValueInput.removeAttribute('max');
-    }
-    
-    calculateTotalFees();
-}
-
-// إدارة الزي المدرسي
-function toggleUniformSection() {
-    const hasUniform = document.getElementById('has_uniform')?.checked;
-    const uniformSection = document.getElementById('uniform_section');
-    
-    if (uniformSection) {
-        uniformSection.style.display = hasUniform ? 'block' : 'none';
-    }
-    
-    calculateTotalFees();
-}
-
-// إضافة قطعة زي صيفي
-function addSummerUniformItem() {
-    const container = document.getElementById('summer_uniform_container');
-    const itemCount = container.children.length + 1;
-    
-    const itemHtml = `
-        <div class="uniform-item grid grid-cols-1 md:grid-cols-3 gap-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-            <div>
-                <input type="text" name="summer_uniform_item_${itemCount}_name" placeholder="اسم القطعة (قميص، بنطلون...)"
-                    class="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200">
-            </div>
-            <div>
-                <input type="number" name="summer_uniform_item_${itemCount}_price" placeholder="السعر" step="0.01" min="0"
-                    class="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200"
-                    onchange="calculateTotalFees()">
-            </div>
-            <div class="flex justify-center">
-                <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeUniformItem(this)">
-                    <i class="fas fa-trash ml-1"></i> حذف
-                </button>
-            </div>
-        </div>
-    `;
-    
-    container.insertAdjacentHTML('beforeend', itemHtml);
-}
-
-// إضافة قطعة زي شتوي
-function addWinterUniformItem() {
-    const container = document.getElementById('winter_uniform_container');
-    const itemCount = container.children.length + 1;
-    
-    const itemHtml = `
-        <div class="uniform-item grid grid-cols-1 md:grid-cols-3 gap-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
-            <div>
-                <input type="text" name="winter_uniform_item_${itemCount}_name" placeholder="اسم القطعة (بلوفر، جاكيت...)"
-                    class="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
-            </div>
-            <div>
-                <input type="number" name="winter_uniform_item_${itemCount}_price" placeholder="السعر" step="0.01" min="0"
-                    class="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                    onchange="calculateTotalFees()">
-            </div>
-            <div class="flex justify-center">
-                <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeUniformItem(this)">
-                    <i class="fas fa-trash ml-1"></i> حذف
-                </button>
-            </div>
-        </div>
-    `;
-    
-    container.insertAdjacentHTML('beforeend', itemHtml);
-}
-
-// حذف قطعة زي
-function removeUniformItem(button) {
-    button.closest('.uniform-item').remove();
-    calculateTotalFees();
-}
-
-// التعامل مع نظام الأقساط المرن
-function updateInstallmentOptions() {
-    const paymentSystem = document.querySelector('input[name="payment_system"]:checked')?.value;
-    const presetSection = document.getElementById('preset_installments_section');
-    const customSection = document.getElementById('custom_installments_section');
-    const installmentsDetails = document.getElementById('installments_details');
-    
-    // إخفاء جميع الأقسام أولاً
-    presetSection.style.display = 'none';
-    customSection.style.display = 'none';
-    installmentsDetails.style.display = 'none';
-    
-    if (paymentSystem === 'installments_preset') {
-        presetSection.style.display = 'block';
-        installmentsDetails.style.display = 'block';
-        updateFlexibleInstallments();
-    } else if (paymentSystem === 'installments_custom') {
-        customSection.style.display = 'block';
-        installmentsDetails.style.display = 'block';
-        updateCustomInstallments();
-    }
-}
-
-// تحديث الأقساط المحددة مسبقاً
-function updateFlexibleInstallments() {
-    const paymentSystem = document.querySelector('input[name="payment_system"]:checked')?.value;
-    
-    if (paymentSystem !== 'installments_preset') return;
-    
-    const installmentsCount = parseInt(document.getElementById('installments_count')?.value || 2);
-    const startDate = document.getElementById('installments_start_date')?.value;
-    const frequency = document.getElementById('installment_frequency')?.value || 'monthly';
-    const installmentsBreakdown = document.getElementById('installments_breakdown');
-    
-    if (!startDate || flexibleFinalTotal <= 0) {
-        installmentsBreakdown.innerHTML = '<p class="text-gray-500 text-sm">يرجى تحديد المصروفات وتاريخ البداية</p>';
-        return;
-    }
-    
-    const installmentAmount = Math.round(flexibleFinalTotal / installmentsCount);
-    const lastInstallmentAmount = flexibleFinalTotal - (installmentAmount * (installmentsCount - 1));
-    
-    let html = '';
-    const startDateObj = new Date(startDate);
-    
-    for (let i = 0; i < installmentsCount; i++) {
-        const installmentDate = new Date(startDateObj);
-        
-        // تحديد المدة بناءً على التكرار
-        let monthsToAdd = i;
-        if (frequency === 'bimonthly') monthsToAdd = i * 2;
-        else if (frequency === 'quarterly') monthsToAdd = i * 3;
-        else if (frequency === 'term') monthsToAdd = i * 4;
-        
-        installmentDate.setMonth(installmentDate.getMonth() + monthsToAdd);
-        
-        const amount = (i === installmentsCount - 1) ? lastInstallmentAmount : installmentAmount;
-        const formattedDate = installmentDate.toLocaleDateString('ar-EG', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
-        
-        html += `
-            <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                <span class="text-blue-700">القسط ${i + 1}:</span>
-                <div class="text-left">
-                    <span class="font-semibold text-blue-800">${formatCurrency(amount)}</span>
-                    <br>
-                    <span class="text-xs text-blue-600">${formattedDate}</span>
-                </div>
-            </div>
-        `;
-    }
-    
-    installmentsBreakdown.innerHTML = html;
-}
-
-// إضافة قسط مخصص
-function addCustomInstallment() {
-    const container = document.getElementById('custom_installments_container');
-    const installmentCount = container.children.length + 1;
-    
-    const installmentHtml = `
-        <div class="custom-installment grid grid-cols-1 md:grid-cols-3 gap-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
-            <div>
-                <label class="block text-xs text-blue-700 mb-1">القسط ${installmentCount}</label>
-                <input type="number" name="custom_installment_${installmentCount}_amount" placeholder="المبلغ" 
-                    step="0.01" min="0" class="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-blue-500"
-                    onchange="updateCustomInstallmentsTotal()">
-            </div>
-            <div>
-                <label class="block text-xs text-blue-700 mb-1">تاريخ الاستحقاق</label>
-                <input type="date" name="custom_installment_${installmentCount}_date" 
-                    class="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-blue-500">
-            </div>
-            <div class="flex justify-center items-end">
-                <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeCustomInstallment(this)">
-                    <i class="fas fa-trash ml-1"></i> حذف
-                </button>
-            </div>
-        </div>
-    `;
-    
-    container.insertAdjacentHTML('beforeend', installmentHtml);
-    updateCustomInstallmentsTotal();
-}
-
-// حذف قسط مخصص
-function removeCustomInstallment(button) {
-    button.closest('.custom-installment').remove();
-    updateCustomInstallmentsTotal();
-    
-    // إعادة ترقيم الأقساط
-    const installments = document.querySelectorAll('#custom_installments_container .custom-installment');
-    installments.forEach((installment, index) => {
-        const label = installment.querySelector('label');
-        if (label) {
-            label.textContent = `القسط ${index + 1}`;
-        }
-    });
-}
-
-// تحديث إجمالي الأقساط المخصصة
-function updateCustomInstallmentsTotal() {
-    const customInputs = document.querySelectorAll('#custom_installments_container input[type="number"]');
-    let customTotal = 0;
-    
-    customInputs.forEach(input => {
-        customTotal += parseFloat(input.value || 0);
-    });
-    
-    document.getElementById('custom_installments_total').textContent = formatCurrency(customTotal);
-    
-    const remaining = flexibleFinalTotal - customTotal;
-    document.getElementById('custom_installments_remaining').textContent = formatCurrency(Math.max(0, remaining));
-    
-    // تغيير لون المتبقي حسب القيمة
-    const remainingElement = document.getElementById('custom_installments_remaining');
-    if (remaining < 0) {
-        remainingElement.className = 'text-xs text-red-600 font-bold';
-    } else if (remaining === 0) {
-        remainingElement.className = 'text-xs text-green-600 font-bold';
-    } else {
-        remainingElement.className = 'text-xs text-blue-600';
-    }
-}
-
-// تهيئة النظام المالي المرن عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', function() {
-    // إضافة مستمعي الأحداث للمصروفات الأساسية
-    const basicFeesInputs = [
-        'basic_tuition_fees',
-        'registration_fees', 
-        'platform_fees'
-    ];
-    
-    basicFeesInputs.forEach(inputId => {
-        const input = document.getElementById(inputId);
-        if (input) {
-            input.addEventListener('input', calculateTotalFees);
-        }
-    });
-    
-    // إضافة مستمعي الأحداث للخصومات
-    const discountElements = [
-        'discount_type',
-        'discount_method', 
-        'discount_value'
-    ];
-    
-    discountElements.forEach(elementId => {
-        const element = document.getElementById(elementId);
-        if (element) {
-            if (elementId === 'discount_type') {
-                element.addEventListener('change', handleDiscountTypeChange);
-            } else if (elementId === 'discount_method') {
-                element.addEventListener('change', handleDiscountMethodChange);
-            } else {
-                element.addEventListener('input', calculateTotalFees);
-            }
-        }
-    });
-    
-    // إضافة مستمعي الأحداث للزي المدرسي
-    const hasUniformCheckbox = document.getElementById('has_uniform');
-    if (hasUniformCheckbox) {
-        hasUniformCheckbox.addEventListener('change', toggleUniformSection);
-    }
-    
-    // إضافة مستمعي الأحداث لأزرار الزي
-    const addSummerBtn = document.getElementById('add_summer_uniform_item');
-    const addWinterBtn = document.getElementById('add_winter_uniform_item');
-    
-    if (addSummerBtn) addSummerBtn.addEventListener('click', addSummerUniformItem);
-    if (addWinterBtn) addWinterBtn.addEventListener('click', addWinterUniformItem);
-    
-    // إضافة مستمعي الأحداث للأقساط
-    const paymentSystemRadios = document.querySelectorAll('input[name="payment_system"]');
-    paymentSystemRadios.forEach(radio => {
-        radio.addEventListener('change', updateInstallmentOptions);
-    });
-    
-    const installmentInputs = [
-        'installments_count',
-        'installments_start_date',
-        'installment_frequency'
-    ];
-    
-    installmentInputs.forEach(inputId => {
-        const input = document.getElementById(inputId);
-        if (input) {
-            input.addEventListener('change', updateFlexibleInstallments);
-        }
-    });
-    
-    // إضافة مستمع لزر الأقساط المخصصة
-    const addCustomInstallmentBtn = document.getElementById('add_custom_installment');
-    if (addCustomInstallmentBtn) {
-        addCustomInstallmentBtn.addEventListener('click', addCustomInstallment);
-    }
-    
-    // تحديث أولي
-    calculateTotalFees();
-    
-    console.log('✅ النظام المالي المرن تم تهيئته بنجاح');
-});
-
-// إدارة تبويبات الزي المدرسي المحسنة
-document.addEventListener('DOMContentLoaded', function() {
-    // التعامل مع تبويبات الزي
-    const uniformTabs = document.querySelectorAll('.uniform-tab');
-    const uniformContents = document.querySelectorAll('.uniform-content');
-    
-    uniformTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            const target = this.dataset.target;
-            
-            // إزالة النشط من جميع التبويبات
-            uniformTabs.forEach(t => {
-                t.classList.remove('active', 'bg-white', 'text-gray-800', 'shadow-sm');
-                t.classList.add('text-gray-600');
-            });
-            
-            // إخفاء جميع المحتويات
-            uniformContents.forEach(content => {
-                content.style.display = 'none';
-            });
-            
-            // تفعيل التبويب المحدد
-            this.classList.add('active', 'bg-white', 'text-gray-800', 'shadow-sm');
-            this.classList.remove('text-gray-600');
-            
-            // إظهار المحتوى المحدد
-            const targetContent = document.getElementById(target);
-            if (targetContent) {
-                targetContent.style.display = 'block';
-            }
-        });
-    });
-});
 
 // ==================== Form Submission Debugging ====================
 document.addEventListener('DOMContentLoaded', function() {

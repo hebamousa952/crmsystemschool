@@ -134,6 +134,22 @@ class Student extends Model
         return $this->hasOne(ParentGuardian::class)->where('guardian_type', 'mother');
     }
 
+    /**
+     * العلاقة مع جهات الاتصال في الطوارئ
+     */
+    public function emergencyContacts(): HasMany
+    {
+        return $this->hasMany(EmergencyContact::class);
+    }
+
+    /**
+     * العلاقة مع جهة الاتصال الأساسية في الطوارئ
+     */
+    public function primaryEmergencyContact(): HasOne
+    {
+        return $this->hasOne(EmergencyContact::class);
+    }
+
     // Accessor: سنوات الدراسة
     public function getStudyYearsAttribute()
     {
@@ -257,13 +273,67 @@ class Student extends Model
 
     // ==================== العلاقات ====================
 
-    // العلاقات ستضاف لاحقاً حسب الحاجة
+    // ==================== العلاقات المالية الجديدة ====================
 
-    // العلاقة مع جهات الاتصال للطوارئ (علاقة واحد لمتعدد)
-    public function emergencyContacts()
+    /**
+     * العلاقة مع سجلات المصروفات المالية
+     */
+    public function studentFeeRecords()
     {
-        return $this->hasMany(EmergencyContact::class);
+        return $this->hasMany(StudentFeeRecord::class);
     }
+
+    /**
+     * العلاقة مع سجل المصروفات للعام الحالي
+     */
+    public function currentYearFeeRecord()
+    {
+        return $this->hasOne(StudentFeeRecord::class)
+            ->where('academic_year', now()->year . '-' . (now()->year + 1))
+            ->where('is_active', true);
+    }
+
+    /**
+     * العلاقة مع جميع الأقساط عبر سجلات المصروفات
+     */
+    public function allInstallments()
+    {
+        return $this->hasManyThrough(Installment::class, StudentFeeRecord::class, 'student_id', 'student_fee_record_id');
+    }
+
+    /**
+     * العلاقة مع جميع الخصومات عبر سجلات المصروفات
+     */
+    public function allDiscounts()
+    {
+        return $this->hasManyThrough(Discount::class, StudentFeeRecord::class, 'student_id', 'student_fee_record_id');
+    }
+
+    /**
+     * العلاقة مع جميع المتأخرات عبر سجلات المصروفات
+     */
+    public function allArrears()
+    {
+        return $this->hasManyThrough(Arrear::class, StudentFeeRecord::class, 'student_id', 'student_fee_record_id');
+    }
+
+    /**
+     * العلاقة مع جميع الفواتير عبر سجلات المصروفات
+     */
+    public function allInvoices()
+    {
+        return $this->hasManyThrough(Invoice::class, StudentFeeRecord::class, 'student_id', 'student_fee_record_id');
+    }
+
+    /**
+     * العلاقة مع جميع الاستردادات عبر سجلات المصروفات
+     */
+    public function allRefunds()
+    {
+        return $this->hasManyThrough(Refund::class, StudentFeeRecord::class, 'student_id', 'student_fee_record_id');
+    }
+
+    // ==================== العلاقات المالية القديمة (للتوافق) ====================
 
     // العلاقة مع المصروفات الدراسية (علاقة واحد لمتعدد)
     public function tuitionFees()

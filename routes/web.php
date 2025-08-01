@@ -24,10 +24,45 @@ Route::get('/', function () {
 // Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.page');
 
     // Students Routes
     Route::resource('students', \App\Http\Controllers\Admin\StudentController::class);
+    
+    // Fees Management Routes
+    Route::prefix('fees')->name('fees.')->group(function () {
+        // Fee Settings Routes
+        Route::resource('settings', \App\Http\Controllers\FeeSettingController::class);
+        Route::post('settings/{id}/duplicate', [\App\Http\Controllers\FeeSettingController::class, 'duplicate'])->name('settings.duplicate');
+        
+        // Student Fee Records Routes
+        Route::resource('records', \App\Http\Controllers\StudentFeeRecordController::class)->names('records');
+        Route::post('records/{id}/apply-settings', [\App\Http\Controllers\StudentFeeRecordController::class, 'applyFeeSettings'])->name('records.apply-settings');
+        Route::post('records/get-settings-for-student', [\App\Http\Controllers\StudentFeeRecordController::class, 'getFeeSettingsForStudent'])->name('records.get-settings-for-student');
+    });
+    
+    // Uniform Management Routes
+    Route::prefix('uniforms')->name('uniforms.')->group(function () {
+        Route::resource('items', \App\Http\Controllers\UniformItemController::class)->names('items');
+        Route::post('items/{id}/toggle-active', [\App\Http\Controllers\UniformItemController::class, 'toggleActive'])->name('items.toggle-active');
+        Route::post('items/{id}/update-price', [\App\Http\Controllers\UniformItemController::class, 'updatePrice'])->name('items.update-price');
+        Route::post('items/get-for-grade-level', [\App\Http\Controllers\StudentFeeRecordController::class, 'getUniformItemsForGradeLevel'])->name('items.get-for-grade-level');
+    });
+});
+
+// API Routes for Dynamic Dropdowns
+Route::prefix('api/dropdown')->group(function () {
+    Route::get('/grades', [App\Http\Controllers\DynamicDropdownController::class, 'getGrades']);
+    Route::get('/classrooms', [App\Http\Controllers\DynamicDropdownController::class, 'getClassrooms']);
+    Route::get('/students', [App\Http\Controllers\DynamicDropdownController::class, 'getStudents']);
+    Route::get('/parents', [App\Http\Controllers\DynamicDropdownController::class, 'getParents']);
+    Route::get('/subjects', [App\Http\Controllers\DynamicDropdownController::class, 'getSubjects']);
+    Route::get('/users', [App\Http\Controllers\DynamicDropdownController::class, 'getUsers']);
+    Route::get('/academic-years', [App\Http\Controllers\DynamicDropdownController::class, 'getAcademicYears']);
+    Route::get('/fee-types', [App\Http\Controllers\DynamicDropdownController::class, 'getFeeTypes']);
+    Route::get('/payment-methods', [App\Http\Controllers\DynamicDropdownController::class, 'getPaymentMethods']);
+    Route::get('/status-options', [App\Http\Controllers\DynamicDropdownController::class, 'getStatusOptions']);
+    Route::get('/search', [App\Http\Controllers\DynamicDropdownController::class, 'search']);
 });
 
 // Auto-login for development

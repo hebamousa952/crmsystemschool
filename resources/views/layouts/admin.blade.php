@@ -30,7 +30,7 @@
         ::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
         
-        /* 🚀 Professional Responsive Sidebar System */
+        /* 🚀 Professional Fixed Sidebar System */
         .sidebar-transition { 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
         }
@@ -38,17 +38,23 @@
             transition: margin-right 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
         }
         
-        /* 🖥️ Desktop (1024px+) - Perfect Flexbox Layout */
+        /* 🖥️ Desktop (1024px+) - Fixed Sidebar Layout */
         @media (min-width: 1024px) {
             #app {
+                display: flex;
                 flex-direction: row;
+                min-height: 100vh;
             }
             
             #sidebar {
-                flex-shrink: 0;
-                position: relative;
+                position: fixed !important;
+                top: 0;
+                right: 0;
                 height: 100vh;
-                z-index: 30;
+                overflow-y: auto;
+                overflow-x: hidden;
+                z-index: 40;
+                transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             }
             
             .sidebar-expanded { width: 280px; }
@@ -56,23 +62,36 @@
             
             #main-content {
                 flex: 1;
-                margin-right: 0;
+                min-height: 100vh;
+                width: auto;
+                margin-right: 280px;
+                transition: margin-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            #main-content.sidebar-collapsed-content {
+                margin-right: 80px;
             }
             
             .mobile-overlay { display: none !important; }
         }
         
-        /* 📟 Tablet (768px - 1023px) - Flexible Layout */
+        /* 📟 Tablet (768px - 1023px) - Fixed Sidebar Layout */
         @media (min-width: 768px) and (max-width: 1023px) {
             #app {
+                display: flex;
                 flex-direction: row;
+                min-height: 100vh;
             }
             
             #sidebar {
-                flex-shrink: 0;
-                position: relative;
+                position: fixed !important;
+                top: 0;
+                right: 0;
                 height: 100vh;
-                z-index: 30;
+                overflow-y: auto;
+                overflow-x: hidden;
+                z-index: 40;
+                transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             }
             
             .sidebar-expanded { width: 260px; }
@@ -80,18 +99,21 @@
             
             #main-content {
                 flex: 1;
-                margin-right: 0;
+                min-height: 100vh;
+                width: auto;
+                margin-right: 260px;
+                transition: margin-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            #main-content.sidebar-collapsed-content {
+                margin-right: 70px;
             }
             
             .mobile-overlay { display: none !important; }
         }
         
-        /* 📱 Mobile (0 - 767px) - Full Width Content */
+        /* 📱 Mobile (0 - 767px) - Overlay Sidebar */
         @media (max-width: 767px) {
-            #app {
-                flex-direction: column;
-            }
-            
             #sidebar {
                 position: fixed !important;
                 top: 0;
@@ -100,6 +122,8 @@
                 width: 280px;
                 transform: translateX(100%);
                 z-index: 50;
+                overflow-y: auto;
+                overflow-x: hidden;
             }
             
             #sidebar.mobile-visible {
@@ -107,9 +131,9 @@
             }
             
             #main-content {
-                flex: 1;
-                width: 100%;
                 margin-right: 0;
+                width: 100%;
+                min-height: 100vh;
             }
             
             .mobile-overlay {
@@ -147,40 +171,100 @@
         
         /* Main App Container - Flexbox Layout */
         #app {
-            display: flex;
-            flex-direction: row;
             min-height: 100vh;
             width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
         }
         
-        /* Navbar always on top */
+        /* Desktop and Tablet Flexbox */
+        @media (min-width: 768px) {
+            #app {
+                flex-direction: row;
+            }
+        }
+        
+        /* Navbar always on top - Fixed positioning */
         header {
-            position: sticky !important;
+            position: fixed !important;
             top: 0;
-            z-index: 40 !important;
+            left: 0;
+            right: 0;
+            z-index: 35 !important;
             width: 100%;
         }
         
         /* Content Area - Flexible & Responsive */
         #main-content {
-            flex: 1;
-            min-width: 0; /* Prevent flex overflow */
             min-height: 100vh;
-            width: 100%;
             max-width: 100%;
             overflow-x: hidden;
         }
         
-        /* Content Inner Container */
+        /* Content Inner Container - Optimized Responsive Padding with fixed navbar compensation */
         .content-container {
             width: 100%;
             max-width: 100%;
-            padding: 1rem;
+            padding: 0.75rem;
+            margin-top: 80px; /* Compensate for fixed navbar */
+        }
+        
+        /* Desktop Content Padding - Reduced side margins */
+        @media (min-width: 1024px) {
+            .content-container {
+                padding: 1.5rem 1rem;
+                max-width: 1400px;
+                margin: 80px auto 0 auto; /* Top margin for navbar, auto for centering */
+            }
+        }
+        
+        /* Tablet Content Padding - Optimized */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .content-container {
+                padding: 1rem 0.75rem;
+                margin-top: 80px;
+            }
+        }
+        
+        /* Mobile Content Padding - Minimal margins */
+        @media (max-width: 767px) {
+            .content-container {
+                padding: 0.5rem 0.75rem;
+                margin-top: 80px;
+            }
         }
         
         /* Responsive Content Elements */
         .content-container > * {
             max-width: 100%;
+        }
+        
+        /* Form Container Responsive */
+        .form-container {
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        @media (min-width: 1024px) {
+            .form-container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .form-container {
+                max-width: 100%;
+                margin: 0;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .form-container {
+                max-width: 100%;
+                margin: 0;
+            }
         }
         
         /* RTL Support */
@@ -225,17 +309,19 @@
         <!-- Sidebar -->
         <aside id="sidebar" class="bg-sidebar text-white sidebar-expanded sidebar-transition shadow-lg">
             <div class="flex flex-col h-full">
-                <!-- Logo Section -->
-                <div class="flex items-center justify-center p-4 border-b border-gray-700">
+                <!-- Logo Section with Toggle Button -->
+                <div class="flex items-center justify-between p-4 border-b border-gray-700">
                     <div class="flex items-center space-x-3 space-x-reverse">
-                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-graduation-cap text-white text-lg"></i>
-                        </div>
                         <div class="sidebar-text">
                             <h1 class="text-lg font-bold">نظام إدارة المدرسة</h1>
                             <p class="text-xs text-gray-400">الإصدار 1.0</p>
                         </div>
                     </div>
+                    
+                    <!-- Sidebar Toggle Button -->
+                    <button id="sidebar-toggle" class="p-2 rounded-lg hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 text-white" title="طي/فرد القائمة الجانبية">
+                        <i class="fas fa-bars text-lg"></i>
+                    </button>
                 </div>
                 
                 <!-- Navigation Menu -->
@@ -293,7 +379,9 @@
                                 </button>
                                 <ul id="finance-menu" class="hidden mt-2 mr-8 space-y-1">
                                     <li><a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm">المدفوعات</a></li>
-                                    <li><a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm">الرسوم والمصروفات</a></li>
+                                    <li><a href="{{ route('admin.fees.records.index') }}" class="block p-2 rounded hover:bg-gray-700 text-sm">الرسوم والمصروفات</a></li>
+                                    <li><a href="{{ route('admin.fees.settings.index') }}" class="block p-2 rounded hover:bg-gray-700 text-sm">إعدادات الرسوم</a></li>
+                                    <li><a href="{{ route('admin.uniforms.items.index') }}" class="block p-2 rounded hover:bg-gray-700 text-sm">إدارة الزي المدرسي</a></li>
                                     <li><a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm">التقارير المالية</a></li>
                                     <li><a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm">المتأخرات</a></li>
                                 </ul>
@@ -381,13 +469,8 @@
                 <div class="flex items-center justify-between px-6 py-4">
                     <!-- Left Side -->
                     <div class="flex items-center space-x-4 space-x-reverse">
-                        <!-- Sidebar Toggle -->
-                        <button id="sidebar-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500" title="تبديل القائمة الجانبية">
-                            <i class="fas fa-bars text-gray-600 dark:text-gray-300 text-lg"></i>
-                        </button>
-                        
                         <!-- Breadcrumb -->
-                        <nav class="hidden md:flex" aria-label="Breadcrumb">
+                        <nav class="flex" aria-label="Breadcrumb">
                             <ol class="flex items-center space-x-2 space-x-reverse text-sm">
                                 <li><a href="#" class="text-blue-600 hover:text-blue-800">الرئيسية</a></li>
                                 <li><i class="fas fa-chevron-left text-gray-400 mx-2"></i></li>
@@ -412,6 +495,11 @@
                     
                     <!-- Right Side -->
                     <div class="flex items-center space-x-4 space-x-reverse">
+                        <!-- Mobile Sidebar Toggle -->
+                        <button id="mobile-sidebar-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors md:hidden" title="فتح القائمة الجانبية">
+                            <i class="fas fa-bars text-gray-600 dark:text-gray-300 text-lg"></i>
+                        </button>
+                        
                         <!-- Mobile Search Toggle -->
                         <button id="mobile-search-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors md:hidden">
                             <i class="fas fa-search text-gray-600 dark:text-gray-300"></i>
@@ -538,6 +626,7 @@
                 
                 // Clear classes
                 this.sidebar.classList.remove('sidebar-expanded', 'sidebar-collapsed');
+                this.mainContent.classList.remove('sidebar-collapsed-content');
                 
                 if (breakpoint === 'mobile') {
                     // Mobile: Always expanded when visible
@@ -550,6 +639,7 @@
                         this.showTexts();
                     } else {
                         this.sidebar.classList.add('sidebar-collapsed');
+                        this.mainContent.classList.add('sidebar-collapsed-content');
                         this.hideTexts();
                     }
                 }
@@ -602,6 +692,12 @@
         
         // Initialize
         const responsiveSidebar = new ResponsiveSidebar();
+        
+        // Mobile Sidebar Toggle (separate button for mobile)
+        const mobileSidebarToggle = document.getElementById('mobile-sidebar-toggle');
+        if (mobileSidebarToggle) {
+            mobileSidebarToggle.addEventListener('click', () => responsiveSidebar.toggle());
+        }
         
         // Mobile Search Toggle
         const mobileSearchToggle = document.getElementById('mobile-search-toggle');
